@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
+import {connect} from 'react-redux'
+import PageNotFound from './PageNotFound';
 
 class Post extends Component {
     render(){
-        const { posts } = this.props
-       // console.log("posts" , posts)
+        const {dispatch,id,timestamp,title,body,author, category,voteScore,commentCount} = this.props;
         
         return(
-            <div className = "post-list">
             <div>
+                <div className = "post-list">
+                <div>
                 <h4 className='postTitle'>Posts</h4>
                 <button>Create new post</button>
                 <select>
@@ -16,25 +19,24 @@ class Post extends Component {
                 </select>
             </div>
                 <div className = "post-list-item">
-                    {posts.map((post) => (
-                        <div className='post-details' key={post.id}>
-                            <p>Author : {post.author}</p>
-                            <p>Title : {post.title}</p>
-                            <p>Description : {post.body}</p>
-                            <p>Post Count :{post.commentCount}</p>
-                            <p>Score : {post.voteScore}</p>
+                        <div className='post-details' key={id}>
+                            <p>Author : {author}</p>
+                            <p>Title : {title}</p>
+                            <p>Description : {body}</p>
+                            <p>Post Count :{commentCount}</p>
+                            <p>Score : {voteScore}</p>
                             <div>
                                 <button>Vote</button>
                                 <button>Edit</button>
                                 <button>Delete Post</button>
                                 <button>Add new comment</button>
                             </div>
-                        </div>  
-                    ))}
+                        </div> 
                 </div>
             </div>
+                </div>
         )
     }
 }
 
-export default Post
+export default Post;

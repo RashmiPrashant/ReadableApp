@@ -1,10 +1,14 @@
-import React, { Component } from 'react';
+ import React, { Component } from 'react';
 import '../App.css';
 import 'bootstrap/dist/css/bootstrap.css';
+import {  BrowserRouter as Router,Route, Link, Switch } from 'react-router-dom';
+import HomePage from './HomePage'
 import CategoryList from './CategoryList'
-//import Post from './Post'
+import PageNotFound from './PageNotFound';
+import PostByCategory from './PostByCategory';
+
 import {connect} from 'react-redux'
-import { fetchAllCategories} from '../actions'
+import { fetchAllCategories,fetchAllPosts} from '../actions'
 
 class App extends Component {
 
@@ -13,26 +17,29 @@ class App extends Component {
   }
 
   render() {
-    const { categories } = this.props;
-    console.log("props",categories.length)
-
-    return (
+    const { categories, posts } = this.props;
+  
+    return (<Router>
       <div className="App">
-        <div className="container">
-        <h3 className='appTitle'>Readable App</h3>
-        {categories.length > 0 &&
-          categories.map(category => (
-            <CategoryList key={category.path} category= {category} />
-          ))}
+      <div className="container">
+      <CategoryList categories={categories} />
+          <div>
+            <Switch>
+                <Route exact path="/" component={HomePage}/>
+                <Route exact path="/:category" component={PostByCategory} />
+                <Route component={PageNotFound} />
+            </Switch>
+          </div>
           
-        </div>  
+        </div>
       </div>
-    );
+      </Router>);
   }
 }
 
-const mapStateToProps = ({ categories }) => ({
-  categories
+const mapStateToProps = ({ categories , posts }) => ({
+  categories,
+  posts
 });
 
 

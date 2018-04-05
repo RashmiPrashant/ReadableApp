@@ -4,6 +4,7 @@ export const GET_ALL_CATEGORIES = 'GET_ALL_CATEGORIES'
 export const GET_ALL_POST = 'GET_ALL_POST'
 export const GET_ALL_COMMENT = 'GET_ALL_COMMENT'
 
+export const GET_POSTS_BY_CATEGORIES = 'GET_POSTS_BY_CATEGORIES'
 export const ADD_POST = 'ADD_POST'
 export const DELETE_POST = 'DELETE_POST'
 export const EDIT_POST = 'EDIT_POST'
@@ -40,15 +41,26 @@ export function getAllComments(comments){
  }
 
  // action creators to get posts
-export const getAllPost = (posts)  => {
+export const getAllPosts = (posts)  => {
     return {
       type: GET_ALL_POST,
       posts,
     }
   }
 
+export const fetchAllPosts = () => dispatch =>
+  api.getAllPosts().then(posts => dispatch(getAllPosts(posts)));
 
- 
+  // get posts by categories 
+  export const getPostsByCategories = posts => ({
+    type: GET_POSTS_BY_CATEGORIES,
+    posts
+  });
+
+  export const fetchPostsByCategories = category => dispatch =>
+  api.getPostsByCategories(category)
+    .then(posts => dispatch(getPostsByCategories(posts)));
+
 
 
 // action creators for posts

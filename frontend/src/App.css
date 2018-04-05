@@ -26,9 +26,9 @@ body, .app {
   background: #f5f5f5;
 }
 .appTitle{
-  
-  background-color: #ccc;
+  background-color:#1dcbfc;
   background-size: 32px 32px;
+  height: 60px;
   background-position: center;
   background-repeat: no-repeat;
   border-radius: 0%;
@@ -144,6 +144,7 @@ body, .app {
   padding: 20px;
   background: white;
   display: inline;
+  cursor: pointer;
 }
 
 .post-list {
