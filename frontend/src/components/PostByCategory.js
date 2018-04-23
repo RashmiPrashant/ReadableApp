@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router-dom';
 import {connect} from 'react-redux'
 import { fetchPostsByCategories} from '../actions'
 import PageNotFound from './PageNotFound';
-import AllPosts from './AllPosts';
 import Post from './Post';
 
 class PostByCategory extends Component {
