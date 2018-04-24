@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux'
-import { fetchPost } from '../actions'
-
+import { fetchPost ,fetchAddVoteToPost ,fetchDeletePost } from '../actions'
 import { formatTimestamp } from '../utils/helpers'
 import { Button } from 'react-bootstrap';
 import Icon from 'react-icons-kit';

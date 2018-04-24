@@ -43,7 +43,6 @@ import {
 
 
   function comments (state = [], action){
-
       switch(action.type){
         case GET_ALL_COMMENTS :  
           return action.comments;

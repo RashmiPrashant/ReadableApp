@@ -6,7 +6,7 @@ import CategoryList from './CategoryList'
 import PageNotFound from './PageNotFound';
 import PostByCategory from './PostByCategory';
 import PostDetails from './PostDetails';
-import Createpost from './Createpost';
+import CreatePostPage from './CreatePostPage';
 import {connect} from 'react-redux'
 import { fetchAllCategories} from '../actions'
 
@@ -25,11 +25,11 @@ class App extends Component {
         <CategoryList categories={categories} />
             <div>
               <Switch>
-                  <Route exact path="/" component={HomePage}/>
+              <Route exact path="/" component={HomePage}/>
                   <Route exact path="/:category" component={PostByCategory} />
-                  <Route exact path="/:createpost" component={Createpost} />
                   <Route exact path="/:category/:post_id" component={PostDetails}/>
-                  <Route component={PageNotFound} />
+                  <Route exact path='/404' component={PageNotFound}/>
+                  
               </Switch>
             </div>
           </div>

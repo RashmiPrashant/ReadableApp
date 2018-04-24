@@ -1,12 +1,53 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux'
+import { fetchAddPost } from '../actions';
 import Category from './Category'
 import { Button, Navbar, Nav, NavItem } from 'react-bootstrap';
+import Modal from 'react-modal';
+import CreatePostPage from './CreatePostPage';
+
+const customStyles = {
+    content : {
+        position: 'absolute',
+        top: '40px',
+        left: '200px',
+        right: '200px',
+        bottom: '40px',
+        border: '1px solid rgb(204, 204, 204)',
+        background: 'rgb(255, 255, 255)',
+        overflow: 'auto',
+        borderRadius: '4px',
+        outline: 'none',
+        padding: '20px',
+        borderRadius: '3px',
+        boxshadow: '0 3px 8px 0 rgba(0,0,0,.24), 0 3px 12px 0 rgba(0,0,0,.12)',
+        minxWidth: '500px'
+    }
+  };
 
 class CategoryList extends Component {
+    state = {
+        postModalOpen: false
+      }
+    
+      openPostModal = () => {
+        this.setState(() => ({postModalOpen: true}))
+      }
+    
+      togglePostModal = () => {
+        this.setState((prevState) => ({
+          postModalOpen: !prevState.postModalOpen
+        }))
+      }
+    
+      
+     
+
     render(){
         const { categories } = this.props;
+        const {postModalOpen} = this.state;
+
         return(
             <div className="header">
                 <div className='appTitle'><h1>Readable App</h1>
@@ -17,10 +58,11 @@ class CategoryList extends Component {
                         </Navbar.Header>
                         <Nav className="ml-auto" navbar>
                             <NavItem>
-                            <Link to="/createpost">
-                            <Button bsSize="large" bsStyle="primary" className="create-new-post"> 
-                            Add New Post 
-                            </Button></Link>
+                            
+                                <Button onClick={this.openPostModal} bsSize="large" bsStyle="primary" className="create-new-post"> 
+                                Add New Post 
+                                </Button>
+                           
                             </NavItem>
                         </Nav>
                     </Navbar>
@@ -29,7 +71,7 @@ class CategoryList extends Component {
                     <ul className="nav nav-pills nav-fill">
                     <li className="nav-item" key="homePage">
                     <Link to="/">
-                        <Button bsSize="large" bsStyle="primary">All Post </Button>
+                        <Button bsSize="large" bsStyle="primary">Home </Button>
                     </Link> 
                     </li>
                     {categories.length > 0 &&
@@ -38,7 +80,16 @@ class CategoryList extends Component {
                             <Category className="nav-link active" key={category.path} {...category} />
                         </li>
                     ))}
-                    </ul>  </div> 
+                    </ul>  
+                </div> 
+                
+                <Modal 
+                style={customStyles}
+                isOpen={postModalOpen}
+                onAfterOpen={this.afterOpenModal}
+                toggle={this.togglePostModal}>
+                    <CreatePostPage/>
+                </Modal>
             </div>
         )
     }

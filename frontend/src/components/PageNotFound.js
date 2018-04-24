@@ -5,10 +5,9 @@ class PageNotFound extends Component {
     render(){
         return(
             <div>
-                <span>Page not found !!
-                    </span>
+                <span>Page not found !!</span>
                     <Link to="/">
-                    <button>Back to home</button>
+                        <button>Back to home</button>
                     </Link>
             </div>
         )
