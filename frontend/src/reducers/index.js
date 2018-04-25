@@ -19,8 +19,6 @@ import {
 
 
   function posts (state = {}, action) {
-    const {post  ,id } = action;
-
     switch (action.type) {
         case GET_ALL_POST :  
           return action.posts;

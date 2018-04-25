@@ -42,11 +42,17 @@ background-color: #e6f3ff;
   border-radius: 0%;
 }
 
+.addComment {
+  padding-left: 20px;
+  text-align: left;
+  font-size: 22px;
+  font-weight: 300;
+}
+
 .subheader {
   font-size: 30px;
   font-weight: 300;
 }
-
 .overlay {
   position: fixed;
   top: 0px;

@@ -1,16 +1,13 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import uuid from 'uuid';
 import moment from 'moment';
 import { FormGroup , FormControl ,ControlLabel,Button} from 'react-bootstrap';
 
-class CreatePostPage extends Component{
+class PostForm extends Component{
   
   constructor(props) {
     super(props);
-
-    
     this.state = {
       id: props.postInfo ? props.postInfo.id : uuid(),
       category: props.postInfo ? props.postInfo.category : 'react',
@@ -29,7 +26,6 @@ class CreatePostPage extends Component{
   };
 
   onTitleChange = e => {
-    
     const title = e.target.value;
     this.setState({ title });
   };
@@ -129,5 +125,5 @@ class CreatePostPage extends Component{
 
 
 
-export default connect()(CreatePostPage);
+export default connect()(PostForm);
 

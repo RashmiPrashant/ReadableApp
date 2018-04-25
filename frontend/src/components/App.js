@@ -6,7 +6,6 @@ import CategoryList from './CategoryList'
 import PageNotFound from './PageNotFound';
 import PostByCategory from './PostByCategory';
 import PostDetails from './PostDetails';
-import CreatePostPage from './CreatePostPage';
 import {connect} from 'react-redux'
 import { fetchAllCategories} from '../actions'
 
@@ -23,16 +22,15 @@ class App extends Component {
       <div className="App">
         <div className="container">
         <CategoryList categories={categories} />
-            <div>
-              <Switch>
-              <Route exact path="/" component={HomePage}/>
-                  <Route exact path="/:category" component={PostByCategory} />
-                  <Route exact path="/:category/:post_id" component={PostDetails}/>
-                  <Route exact path='/404' component={PageNotFound}/>
-                  
-              </Switch>
-            </div>
+        <div>
+          <Switch>
+            <Route exact path="/" component={HomePage}/>
+            <Route exact path="/:category" component={PostByCategory} />
+            <Route exact path="/:category/:post_id" component={PostDetails}/>
+            <Route exact path='/404' component={PageNotFound}/>
+          </Switch>
           </div>
+        </div>
       </div>
       </Router>);
   }

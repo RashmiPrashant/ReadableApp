@@ -3,7 +3,9 @@ import { connect } from 'react-redux';
 import { fetchAllPosts} from '../actions'
 import { fetchAllComments } from '../actions';
 import Post from './Post';
-import Comments from './Comments';
+import Comments from './Comments'; 
+import CommentForm from './CommentForm';
+
 class PostDetails extends Component {
 
   componentDidMount() {
@@ -14,13 +16,18 @@ class PostDetails extends Component {
         const { posts, comments } = this.props;
         const post = posts.length > 0 &&
             posts.filter(post => post.id === this.props.match.params.post_id);
+
         const singlePost = { ...post[0] };
         const commentsId = comments.map(comment => comment.id);
         return(
             <div className="post-details">
-                 <Post commentsId={commentsId} {...singlePost} />
+                <Post commentsId={commentsId} {...singlePost} />
+                <div className="addComment">
+                <CommentForm parentId={this.props.match.params.post_id} />
+                </div>
                   {comments.length > 0 &&
                     comments.map(comment => (
+                        
                         <Comments
                         key={comment.id}
                         {...comment}
@@ -35,7 +42,6 @@ class PostDetails extends Component {
 const mapStateToProps = ({ posts , comments }) => ({
     posts,
     comments
-
   });
 
 export default connect(mapStateToProps, { fetchAllPosts,fetchAllComments })(PostDetails);

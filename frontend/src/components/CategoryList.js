@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux'
-import { fetchAddPost } from '../actions';
 import Category from './Category'
 import { Button, Navbar, Nav, NavItem } from 'react-bootstrap';
 import Modal from 'react-modal';
@@ -20,7 +19,6 @@ const customStyles = {
         borderRadius: '4px',
         outline: 'none',
         padding: '20px',
-        borderRadius: '3px',
         boxshadow: '0 3px 8px 0 rgba(0,0,0,.24), 0 3px 12px 0 rgba(0,0,0,.12)',
         minxWidth: '500px'
     }
@@ -41,9 +39,6 @@ class CategoryList extends Component {
         }))
       }
     
-      
-     
-
     render(){
         const { categories } = this.props;
         const {postModalOpen} = this.state;
@@ -53,16 +48,16 @@ class CategoryList extends Component {
                 <div className='appTitle'><h1>Readable App</h1>
                     <Navbar color="light" expand="md" className="post-navbar">
                     <Navbar.Header>
-                        <Navbar.Brand><span>Posts</span>
-                            </Navbar.Brand>
+                    <h3>See all Posts</h3>
+                            
                         </Navbar.Header>
                         <Nav className="ml-auto" navbar>
                             <NavItem>
-                            
-                                <Button onClick={this.openPostModal} bsSize="large" bsStyle="primary" className="create-new-post"> 
-                                Add New Post 
+                                <Button onClick={this.openPostModal} 
+                                    bsSize="large" 
+                                    bsStyle="primary" 
+                                    className="create-new-post">Add New Post 
                                 </Button>
-                           
                             </NavItem>
                         </Nav>
                     </Navbar>
@@ -84,10 +79,10 @@ class CategoryList extends Component {
                 </div> 
                 
                 <Modal 
-                style={customStyles}
-                isOpen={postModalOpen}
-                onAfterOpen={this.afterOpenModal}
-                toggle={this.togglePostModal}>
+                    style={customStyles}
+                    isOpen={postModalOpen}
+                    onAfterOpen={this.afterOpenModal}
+                    toggle={this.togglePostModal}>
                     <CreatePostPage/>
                 </Modal>
             </div>

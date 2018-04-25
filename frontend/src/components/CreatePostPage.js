@@ -1,11 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
-import CreatePostForm from "./CreatePostForm";
+import PostForm from "./PostForm";
 import { fetchAddPost } from '../actions';
 
 const CreatePostPage = props => (
   <div>
-    <CreatePostForm
+    <PostForm
       onSubmit={post => {
         props.dispatch(fetchAddPost(post));
       }}
