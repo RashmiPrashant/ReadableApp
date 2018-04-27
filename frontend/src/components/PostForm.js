@@ -116,7 +116,8 @@ class PostForm extends Component{
               />
           </FormGroup>
     
-              <Button onClick ={this.onFormSubmit} type="submit">Submit</Button>
+              <Button onClick ={this.onFormSubmit} type="submit">
+                {this.props.postInfo ? 'Edit Post' : 'Add Post'}</Button>
                 </form>
                 </div>
         )

@@ -28,7 +28,7 @@ background-color: #e6f3ff;
 
 .appTitle{
   background-size: 32px 32px;
-  height: 160px;
+  height: 120px;
   background-position: center;
   background-repeat: no-repeat;
   border-radius: 0%;
@@ -87,8 +87,16 @@ background-color: #e6f3ff;
   text-align: center;
 }
 
-
-
+.homeNavigation{
+  padding-bottom:20px; 
+}
+/* sub header*/
+.create-new-post{
+  margin-top: 20px;
+}
+.dropDown{
+  margin-top: 20px;
+}
 /* ListCategory */
 
 .category-list {
@@ -96,17 +104,13 @@ background-color: #e6f3ff;
   display: block;
 }
 
-
-
 .category-list ul
 {
     position: absolute;
-    background-color:#1965b1;
     padding: 20px;
 }
 
 .category-list ul li {
-  background-color:#1965b1;
   margin: 5px;
 }
 

@@ -18,19 +18,26 @@ class PostDetails extends Component {
             posts.filter(post => post.id === this.props.match.params.post_id);
 
         const singlePost = { ...post[0] };
-        const commentsId = comments.map(comment => comment.id);
+        const commentsId = comments.length > 0 && 
+            comments.map(comment => comment.id);
+            
         return(
             <div className="post-details">
-                <Post commentsId={commentsId} {...singlePost} />
+                <Post 
+                    commentsId={commentsId} 
+                    {...singlePost} 
+                    goToHomepage={this.props.history.push}/>
+                    
                 <div className="addComment">
-                <CommentForm parentId={this.props.match.params.post_id} />
+                    <CommentForm parentId={this.props.match.params.post_id} />
                 </div>
+
                   {comments.length > 0 &&
                     comments.map(comment => (
-                        
                         <Comments
                         key={comment.id}
                         {...comment}
+                        postUrl={this.props.match.url}
                         />
                     ))}
                     

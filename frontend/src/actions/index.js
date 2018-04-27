@@ -159,7 +159,4 @@ export const addVoteToComment = comment => ({
     api
       .addVoteToComment(commentId, option)
       .then(comment => dispatch(addVoteToComment(comment)));
-  
-
-
 

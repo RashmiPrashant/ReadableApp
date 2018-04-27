@@ -76,7 +76,6 @@ class AddComment  extends Component{
       };
 
       openCommentModal = () => {
-          alert("open?" );
         this.setState(() => ({commentModalOpen: true}))
       }
     

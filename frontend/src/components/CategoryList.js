@@ -2,46 +2,13 @@ import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux'
 import Category from './Category'
-import { Button, Navbar, Nav, NavItem } from 'react-bootstrap';
-import Modal from 'react-modal';
-import CreatePostPage from './CreatePostPage';
+import { Button ,Navbar} from 'react-bootstrap';
 
-const customStyles = {
-    content : {
-        position: 'absolute',
-        top: '40px',
-        left: '200px',
-        right: '200px',
-        bottom: '40px',
-        border: '1px solid rgb(204, 204, 204)',
-        background: 'rgb(255, 255, 255)',
-        overflow: 'auto',
-        borderRadius: '4px',
-        outline: 'none',
-        padding: '20px',
-        boxshadow: '0 3px 8px 0 rgba(0,0,0,.24), 0 3px 12px 0 rgba(0,0,0,.12)',
-        minxWidth: '500px'
-    }
-  };
 
 class CategoryList extends Component {
-    state = {
-        postModalOpen: false
-      }
-    
-      openPostModal = () => {
-        this.setState(() => ({postModalOpen: true}))
-      }
-    
-      togglePostModal = () => {
-        this.setState((prevState) => ({
-          postModalOpen: !prevState.postModalOpen
-        }))
-      }
     
     render(){
         const { categories } = this.props;
-        const {postModalOpen} = this.state;
 
         return(
             <div className="header">
@@ -49,20 +16,10 @@ class CategoryList extends Component {
                     <Navbar color="light" expand="md" className="post-navbar">
                     <Navbar.Header>
                     <h3>See all Posts</h3>
-                            
                         </Navbar.Header>
-                        <Nav className="ml-auto" navbar>
-                            <NavItem>
-                                <Button onClick={this.openPostModal} 
-                                    bsSize="large" 
-                                    bsStyle="primary" 
-                                    className="create-new-post">Add New Post 
-                                </Button>
-                            </NavItem>
-                        </Nav>
                     </Navbar>
                 </div>
-                <div>
+                <div className="homeNavigation">
                     <ul className="nav nav-pills nav-fill">
                     <li className="nav-item" key="homePage">
                     <Link to="/">
@@ -78,13 +35,7 @@ class CategoryList extends Component {
                     </ul>  
                 </div> 
                 
-                <Modal 
-                    style={customStyles}
-                    isOpen={postModalOpen}
-                    onAfterOpen={this.afterOpenModal}
-                    toggle={this.togglePostModal}>
-                    <CreatePostPage/>
-                </Modal>
+                
             </div>
         )
     }

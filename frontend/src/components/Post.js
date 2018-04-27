@@ -1,16 +1,35 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux'
-import { fetchAddVoteToPost ,fetchDeletePost } from '../actions'
+import { 
+    fetchAddVoteToPost ,
+    fetchDeletePost , 
+    fetchAllPosts ,
+    fetchPost , 
+    fetchDeleteComment
+        } from '../actions'
 import { formatTimestamp } from '../utils/helpers'
 import { Button } from 'react-bootstrap';
 import Icon from 'react-icons-kit';
 import { thumbsUp , thumbsDown, edit , close } from 'react-icons-kit/fa';
 
 class Post extends Component {
+
+    handleVoting = () => {
+        if (this.props.goToHomepage) {
+          this.props.dispatch(fetchPost(this.props.id));
+        } else {
+          this.props.dispatch(fetchAllPosts());
+        }
+      };    
+
+    handleDeleteComments = () => {
+        this.props.commentsId &&
+          this.props.commentsId.map(commentId => {
+            return this.props.dispatch(fetchDeleteComment(commentId));
+          });
+    };
     
-    
-      
     render(){
         const {
             dispatch,
@@ -21,8 +40,10 @@ class Post extends Component {
             author, 
             category,
             voteScore,
-            commentCount
+            commentCount,
+            goToHomepage
                 } = this.props;
+
         
         return(
         <div className="post">
@@ -39,7 +60,7 @@ class Post extends Component {
         
         <Button onClick={() => {
             dispatch(fetchAddVoteToPost(id, 'upVote'));
-            
+            //this.handleVoting();
             }} 
             bsSize="large" 
             bsStyle="primary" 
@@ -48,6 +69,7 @@ class Post extends Component {
         
         <Button onClick={() => {
             dispatch(fetchAddVoteToPost(id, 'downVote'));
+            //this.handleVoting();
             }} 
             bsSize="large" 
             bsStyle="primary" 
@@ -62,6 +84,7 @@ class Post extends Component {
         
         <Button onClick={() => {
                       dispatch(fetchDeletePost(id));
+                      this.handleDeleteComments();
                     }}
             bsSize="large" 
             bsStyle="primary" 
@@ -77,13 +100,5 @@ class Post extends Component {
         )
     }
 }
-
-/*
-<Button 
-            bsSize="large" 
-            bsStyle="primary" 
-            className="btn btn-secondary">Add new comment <Icon icon={pen}/>
-        </Button>
-        */
 
 export default connect()(Post);

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import {Link} from 'react-router-dom';
 import { fetchAllComments , 
          fetchPost, 
          fetchEditComment , 
@@ -21,10 +22,11 @@ class Comments extends Component{
             author,
             parentDeleted,
             voteScore,
-            deleted
+            deleted,
+            postUrl
                 } = this.props;
-      
-        return(
+            
+            return(
             <div className="comment">
                 <div className="comment-list">
                     <div className="comment-list-item">
@@ -53,11 +55,18 @@ class Comments extends Component{
                                     bsStyle="primary" 
                                     className="btn btn-secondary"> Down Vote <Icon icon={thumbsDown }/>
                                 </Button>
+                                
                                 <Button 
-                                    bsSize="small" 
-                                    bsStyle="primary" 
-                                    className="btn btn-secondary" > Edit <Icon icon={edit}/>
+                                        bsSize="small" 
+                                        bsStyle="primary" 
+                                        className="btn btn-secondary" > <Link
+                                        to={{
+                                            pathname: `/editcomment/${id}`,
+                                            state: { post: { postUrl } }
+                                          }}
+                                    >Edit <Icon icon={edit}/></Link>
                                 </Button>
+                                
                                 <Button 
                                      onClick={() => {
                                         dispatch(fetchDeleteComment(id));
