@@ -60,7 +60,7 @@ class Post extends Component {
         
         <Button onClick={() => {
             dispatch(fetchAddVoteToPost(id, 'upVote'));
-            //this.handleVoting();
+            this.handleVoting();
             }} 
             bsSize="large" 
             bsStyle="primary" 
@@ -69,7 +69,7 @@ class Post extends Component {
         
         <Button onClick={() => {
             dispatch(fetchAddVoteToPost(id, 'downVote'));
-            //this.handleVoting();
+            this.handleVoting();
             }} 
             bsSize="large" 
             bsStyle="primary" 
@@ -79,7 +79,8 @@ class Post extends Component {
         <Button 
             bsSize="large" 
             bsStyle="primary" 
-            className="btn btn-secondary" > Edit <Icon icon={edit}/>
+            className="btn btn-secondary" > 
+            <Link to={`/editpost/${id}`}>Edit Post </Link><Icon icon={edit}/>
         </Button>
         
         <Button onClick={() => {
@@ -88,7 +89,7 @@ class Post extends Component {
                     }}
             bsSize="large" 
             bsStyle="primary" 
-            className="btn btn-secondary"> Delete <Icon icon={close}/>
+            className="btn btn-secondary"> Delete Post<Icon icon={close}/>
         </Button>
         
         

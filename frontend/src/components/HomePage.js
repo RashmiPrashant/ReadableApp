@@ -57,25 +57,24 @@ class HomePage extends Component {
         return(
             <div>
                 <div>
-                    <div >
+                    <div className="subNavHeader">
                         <ul className="nav nav-pills nav-fill">
-                            <li className="nav-item">
+                            <li className="create-new-post">
                             <Button 
-                            className="create-new-post"  
+                            
                             bsSize="large" 
                             >
                             <Link to="/createpost">Add New Post</Link> 
                             </Button></li>
                             
-                            <li className="nav-item"><h3>Posts by</h3>
+                            <li className="dropDown">
                             <FormGroup>
                             <FormControl
-                            className="dropDown" 
                             componentClass="select" 
                             placeholder="Select by "
                             >
-                                <option value="votes">Votes</option>
-                                <option value="latest">Latest</option>
+                                <option value="votescore">Votes</option>
+                                <option value="timestamp">Latest</option>
                             </FormControl>
                             </FormGroup>
                                 </li>

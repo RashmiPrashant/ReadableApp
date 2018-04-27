@@ -22,10 +22,6 @@ body {
   background-color:#1965b1;
 }
 
-.main-section{
-background-color: #e6f3ff;
-}
-
 .appTitle{
   background-size: 32px 32px;
   height: 120px;
@@ -43,7 +39,9 @@ background-color: #e6f3ff;
 }
 
 .addComment {
+  
   padding-left: 20px;
+  padding-top: 20px;
   text-align: left;
   font-size: 22px;
   font-weight: 300;
@@ -87,15 +85,34 @@ background-color: #e6f3ff;
   text-align: center;
 }
 
+.subNavHeader{
+  background-color: #e6f3ff;
+  border: 2px solid #c3d2e0;
+}
 .homeNavigation{
   padding-bottom:20px; 
 }
 /* sub header*/
 .create-new-post{
+  text-align: left;
+  padding-left: 10px;
+  width:900px;
   margin-top: 20px;
+  margin-bottom: 20px;
 }
 .dropDown{
-  margin-top: 20px;
+  margin-top: 25px;
+  width:175px;
+}
+.createComment{
+  margin-top:0px;
+  margin-bottom:18px;
+  width: 950px;
+}
+.dropDownComment{
+  margin-top: 17px;
+  margin-bottom: 10px;
+  
 }
 /* ListCategory */
 
@@ -118,12 +135,18 @@ background-color: #e6f3ff;
 .post-navbar{
   background-color:#1965b1;
 }
+.post{
+  background-color: #e6f3ff;
+  border-left: 2px solid #c3d2e0;
+  border-right: 2px solid #c3d2e0;
+  border-bottom: 2px solid #c3d2e0;
+  padding: 5px;
+}
 .post-list {
   width: 100%;
-  margin: 17px;
-  padding: 3px;
   list-style-type: none;
   text-align: left;
+  
 }
 .post-list-item {
   background: white;
@@ -140,6 +163,13 @@ background-color: #e6f3ff;
   justify-content: center;
 }
 
+.commentSort{
+  display: inline;
+  background-color: #1965b1;
+  border-left: 2px solid #c3d2e0;
+  border-right: 2px solid #c3d2e0;
+  padding: 5px;
+}
 
 .comment-details {
   border-radius: 4px;
@@ -158,6 +188,12 @@ background-color: #e6f3ff;
 
 }
 
+.commentList{
+  background-color: #e6f3ff;
+  border-left: 2px solid #c3d2e0;
+  border-right: 2px solid #c3d2e0;
+  border-bottom: 2px solid #c3d2e0;
+}
 .comment{
   margin: 15px;
   padding: 5px;

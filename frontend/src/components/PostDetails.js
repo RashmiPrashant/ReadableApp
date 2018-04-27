@@ -5,6 +5,7 @@ import { fetchAllComments } from '../actions';
 import Post from './Post';
 import Comments from './Comments'; 
 import CommentForm from './CommentForm';
+import { FormGroup , FormControl} from 'react-bootstrap';
 
 class PostDetails extends Component {
 
@@ -27,11 +28,30 @@ class PostDetails extends Component {
                     commentsId={commentsId} 
                     {...singlePost} 
                     goToHomepage={this.props.history.push}/>
-                    
-                <div className="addComment">
-                    <CommentForm parentId={this.props.match.params.post_id} />
-                </div>
 
+                
+                <div className="commentSort">
+                <ul className="nav nav-pills nav-fill">
+                            <li className="createComment">
+                            <div className="addComment">
+                                <CommentForm parentId={this.props.match.params.post_id} />
+                            </div>
+                            </li>
+                            
+                            <li className="dropDownComment">
+                            <FormGroup>
+                            <FormControl 
+                            componentClass="select" 
+                            placeholder="Select by "
+                            >
+                                <option value="votescore">Votes</option>
+                                <option value="timestamp">Latest</option>
+                            </FormControl>
+                            </FormGroup>
+                                </li>
+                        </ul>
+                    </div>
+                    <div className="commentList">
                   {comments.length > 0 &&
                     comments.map(comment => (
                         <Comments
@@ -40,7 +60,7 @@ class PostDetails extends Component {
                         postUrl={this.props.match.url}
                         />
                     ))}
-                    
+                    </div>
                 </div>
         )
     }
