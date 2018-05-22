@@ -1,5 +1,6 @@
 const SortPosts = (posts, { sortBy }) => {
-  return posts.sort((currentPost, nextPost) => {
+  const myData = [...posts];
+  return myData.sort((currentPost, nextPost) => {
     if (sortBy === 'Newest Post') {
       return currentPost.timestamp < nextPost.timestamp ? 1 : -1;
     } else if (sortBy === 'Oldest Post') {

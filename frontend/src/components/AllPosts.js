@@ -27,6 +27,7 @@ class AllPosts extends Component {
 }
 
 const mapStateToProps = ({ posts , sorting }) => ({
+    ///posts: SortPosts(posts, sorting)
     posts : SortPosts(posts , sorting)
   });
   
