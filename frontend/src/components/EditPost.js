@@ -12,7 +12,6 @@ class EditPost extends Component{
           );
           const matchedPost = { ...post[0] };
 
-
         return(
             <div>
                 <span>I am in edit form !!!</span>

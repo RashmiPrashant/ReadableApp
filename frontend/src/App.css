@@ -18,6 +18,20 @@ body {
   line-height: 1.5;
 }
 
+a:link {
+  text-decoration: none;
+}
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+a:active {
+  text-decoration: none;
+}
 .header{
   background-color:#1965b1;
 }
