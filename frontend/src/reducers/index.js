@@ -13,7 +13,11 @@ import {
     EDIT_COMMENT,
     ADD_VOTE_TO_POST,
     ADD_VOTE_TO_COMMENT,
-    GET_POSTS_BY_CATEGORIES
+    GET_POSTS_BY_CATEGORIES,
+    SORT_BY_NEWEST_POST,
+    SORT_BY_OLDEST_POST,
+    SORT_BY_HIGHEST_VOTE_SCORE,
+    SORT_BY_LOWEST_VOTE_SCORE
   } from '../actions'
 
 
@@ -32,8 +36,10 @@ import {
           return action.post;
         case DELETE_POST :
           return state.filter(post => post.id !== action.postId);
+        //case ADD_VOTE_TO_POST :
+          //return [...state, action.post];
         case ADD_VOTE_TO_POST :
-          return [...state, action.post];
+          return state.map( post => { if(post.id === action.postId) { return action.post } return post })
         default :
           return state
     }
@@ -68,8 +74,40 @@ import {
         }
       }
 
-      export default combineReducers({
-        comments,
-        posts,
-        categories,
+      const initialSortingState = {
+        sortBy: 'Newest Post'
+      };
+      
+      const sorting = (state = initialSortingState, action) => {
+        switch (action.type) {
+          case SORT_BY_NEWEST_POST:
+            return {
+              ...state,
+              sortBy: 'Newest Post'
+            };
+          case SORT_BY_OLDEST_POST:
+            return {
+              ...state,
+              sortBy: 'Oldest Post'
+            };
+          case SORT_BY_HIGHEST_VOTE_SCORE:
+            return {
+              ...state,
+              sortBy: 'Highest Vote'
+            };
+          case SORT_BY_LOWEST_VOTE_SCORE:
+            return {
+              ...state,
+              sortBy: 'Lowest Vote'
+            };
+          default:
+            return state;
+        }
+      };
+
+export default combineReducers({
+  comments,
+  posts,
+  categories,
+  sorting
       })

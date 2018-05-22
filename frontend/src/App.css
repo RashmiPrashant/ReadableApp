@@ -171,6 +171,12 @@ body {
   padding: 5px;
 }
 
+.sorting-dropdown {
+  margin-left: 25px;
+  color: #007bff;
+  font-family: sans-serif;
+  font-size: 17px;
+}
 .comment-details {
   border-radius: 4px;
   flex-shrink: 0;

@@ -16,7 +16,10 @@ export const DELETE_COMMENT = 'DELETE_COMMENT'
 export const EDIT_COMMENT = 'EDIT_COMMENT'
 export const ADD_VOTE_TO_COMMENT = 'ADD_VOTE_TO_COMMENT'
 
-
+export const SORT_BY_NEWEST_POST ='SORT_BY_NEWEST_POST'
+export const SORT_BY_OLDEST_POST = 'SORT_BY_OLDEST_POST'
+export const SORT_BY_HIGHEST_VOTE_SCORE ='SORT_BY_HIGHEST_VOTE_SCORE'
+export const SORT_BY_LOWEST_VOTE_SCORE = 'SORT_BY_LOWEST_VOTE_SCORE'
 
 
 // action creators to get category
@@ -159,4 +162,21 @@ export const addVoteToComment = comment => ({
     api
       .addVoteToComment(commentId, option)
       .then(comment => dispatch(addVoteToComment(comment)));
+
+// sorting 
+export const sortByNewestPost = () => ({
+  type: SORT_BY_NEWEST_POST
+});
+
+export const sortByOldestPost = () => ({
+  type: SORT_BY_OLDEST_POST
+});
+
+export const sortByHighestVoteScore = () => ({
+  type: SORT_BY_HIGHEST_VOTE_SCORE
+});
+
+export const sortByLowestVoteScore = () => ({
+  type: SORT_BY_LOWEST_VOTE_SCORE
+});
 

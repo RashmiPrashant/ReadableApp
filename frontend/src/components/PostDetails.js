@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
+import SortPosts from './SortPosts';
 import { fetchAllPosts} from '../actions'
 import { fetchAllComments } from '../actions';
+import SortDropdown from './SortDropdown'
 import Post from './Post';
 import Comments from './Comments'; 
 import CommentForm from './CommentForm';
-import { FormGroup , FormControl} from 'react-bootstrap';
 
 class PostDetails extends Component {
 
@@ -39,15 +40,7 @@ class PostDetails extends Component {
                             </li>
                             
                             <li className="dropDownComment">
-                            <FormGroup>
-                            <FormControl 
-                            componentClass="select" 
-                            placeholder="Select by "
-                            >
-                                <option value="votescore">Votes</option>
-                                <option value="timestamp">Latest</option>
-                            </FormControl>
-                            </FormGroup>
+                            <SortDropdown />
                                 </li>
                         </ul>
                     </div>
@@ -66,9 +59,9 @@ class PostDetails extends Component {
     }
 }
 
-const mapStateToProps = ({ posts , comments }) => ({
+const mapStateToProps = ({ posts , comments , sorting }) => ({
     posts,
-    comments
+    comments: SortPosts(comments, sorting)
   });
 
 export default connect(mapStateToProps, { fetchAllPosts,fetchAllComments })(PostDetails);

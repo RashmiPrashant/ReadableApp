@@ -17,8 +17,10 @@ class Post extends Component {
 
     handleVoting = () => {
         if (this.props.goToHomepage) {
+            //alert("home")
           this.props.dispatch(fetchPost(this.props.id));
         } else {
+           // alert("else home")
           this.props.dispatch(fetchAllPosts());
         }
       };    
@@ -69,7 +71,7 @@ class Post extends Component {
         
         <Button onClick={() => {
             dispatch(fetchAddVoteToPost(id, 'downVote'));
-            this.handleVoting();
+           this.handleVoting();
             }} 
             bsSize="large" 
             bsStyle="primary" 

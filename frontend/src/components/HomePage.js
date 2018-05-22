@@ -6,7 +6,9 @@ import { fetchAllPosts} from '../actions'
 import {connect} from 'react-redux'
 import Modal from 'react-modal';
 import CreatePostPage from './CreatePostPage';
-import { FormGroup , FormControl, Button} from 'react-bootstrap';
+import SortDropdown from './SortDropdown'
+import { Button} from 'react-bootstrap';
+
 
 const customStyles = {
     content : {
@@ -61,23 +63,12 @@ class HomePage extends Component {
                         <ul className="nav nav-pills nav-fill">
                             <li className="create-new-post">
                             <Button 
-                            
-                            bsSize="large" 
-                            >
+                            bsSize="large">
                             <Link to="/createpost">Add New Post</Link> 
                             </Button></li>
-                            
                             <li className="dropDown">
-                            <FormGroup>
-                            <FormControl
-                            componentClass="select" 
-                            placeholder="Select by "
-                            >
-                                <option value="votescore">Votes</option>
-                                <option value="timestamp">Latest</option>
-                            </FormControl>
-                            </FormGroup>
-                                </li>
+                            {posts.length > 0 ? <SortDropdown /> : null}
+                            </li>
                         </ul>
                     </div>                   
                 </div>
