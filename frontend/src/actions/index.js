@@ -122,14 +122,12 @@ export const fetchAllComments = postId => dispatch =>
 
 
 // action creators for comments
-export function addNewComment ({ comment}) {
-    return {
-      type: ADD_NEW_COMMENT,
-      comment,
-    }
-  }
+export const addNewComment = comment => ({
+  type: ADD_NEW_COMMENT,
+  comment
+});
 
-  export const fetchAddNewComment = comment => dispatch =>
+export const fetchAddNewComment = comment => dispatch =>
   api.addNewComment(comment).then(comment => dispatch(addNewComment(comment)));
 
   export const editComment = comment => ({

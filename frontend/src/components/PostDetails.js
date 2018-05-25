@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
+import { fetchAllPosts , fetchAllComments} from '../actions'
 import SortPosts from './SortPosts';
-import { fetchAllPosts} from '../actions'
-import { fetchAllComments } from '../actions';
 import SortDropdown from './SortDropdown'
 import Post from './Post';
 import Comments from './Comments'; 
@@ -28,7 +27,8 @@ class PostDetails extends Component {
                 <Post 
                     commentsId={commentsId} 
                     {...singlePost} 
-                    goToHomepage={this.props.history.push}/>
+                    goToHomepage={this.props.history.push}
+                    />
 
                 
                 <div className="commentSort">

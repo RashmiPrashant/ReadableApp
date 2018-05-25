@@ -1,28 +1,10 @@
 import React, { Component } from 'react';
-import Modal from 'react-modal';
-import Icon from 'react-icons-kit';
-import { close } from 'react-icons-kit/fa';   
 import uuid from 'uuid';
 import moment from 'moment';
+import Icon from 'react-icons-kit';
+import { close } from 'react-icons-kit/fa';
 import { FormGroup , FormControl ,ControlLabel,Button} from 'react-bootstrap';
 
-const customStyles = {
-    content : {
-        position: 'absolute',
-        top: '40px',
-        left: '200px',
-        right: '200px',
-        bottom: '40px',
-        border: '1px solid rgb(204, 204, 204)',
-        background: 'rgb(255, 255, 255)',
-        overflow: 'auto',
-        borderRadius: '4px',
-        outline: 'none',
-        padding: '20px',
-        boxshadow: '0 3px 8px 0 rgba(0,0,0,.24), 0 3px 12px 0 rgba(0,0,0,.12)',
-        minxWidth: '500px'
-    }
-  };
 
 
 class AddComment  extends Component{
@@ -36,8 +18,7 @@ class AddComment  extends Component{
           author: props.commentInfo ? props.commentInfo.author : '',
           body: props.commentInfo ? props.commentInfo.body : '',
           voteScore: props.commentInfo ? props.commentInfo.voteScore : 0,
-          error: '',
-          commentModalOpen: false
+          error: ''
         };
       }
      
@@ -54,7 +35,8 @@ class AddComment  extends Component{
     
       onFormSubmit = e => {
         e.preventDefault();
-        if (!this.state.author || !this.state.body) {
+        if (this.state.author==="" || this.state.body ==="") {
+          alert("please all filed are comulsory!!");
           this.setState(() => ({ error: 'Please fill out all the fields' }));
         } else {
           this.props.onSubmit({
@@ -75,34 +57,10 @@ class AddComment  extends Component{
         }
       };
 
-      openCommentModal = () => {
-        this.setState(() => ({commentModalOpen: true}))
-      }
-    
-      toggleCommentModal = () => {
-        this.setState((prevState) => ({
-            commentModalOpen: !prevState.commentModalOpen
-        }))
-      }
-
-
     render(){
-        const {commentModalOpen} = this.state;
         return(
             <div>
-                <Button 
-                onClick={this.openCommentModal}
-                bsSize="small" 
-                bsStyle="primary" 
-                className="btn btn-secondary"> Add new Comment  <Icon icon={close}/>
-                </Button>
-                <Modal 
-                    style={customStyles}
-                    isOpen={commentModalOpen}
-                    onAfterOpen={this.afterOpenModal}
-                    toggle={this.toggleCommentModal}>
-
-                    <h3 className= "subheader">Post your comment here !!</h3>
+                    <h4 className= "subheader">Post your comment here !!</h4>
                     <form>
                         <FormGroup>
                         <ControlLabel>Enter Author</ControlLabel>
@@ -125,7 +83,6 @@ class AddComment  extends Component{
                         </FormGroup>
                         <Button onClick ={this.onFormSubmit} type="submit">Submit</Button>
                     </form>
-                </Modal>
             </div>
         )
     }

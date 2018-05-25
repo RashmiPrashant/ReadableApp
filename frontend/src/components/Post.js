@@ -16,11 +16,12 @@ import { thumbsUp , thumbsDown, edit , close } from 'react-icons-kit/fa';
 class Post extends Component {
 
     handleVoting = () => {
+        //alert("###home  "  , this.props.goToHomepage)
         if (this.props.goToHomepage) {
             //alert("home")
           this.props.dispatch(fetchPost(this.props.id));
         } else {
-           // alert("else home")
+            //alert("else home")
           this.props.dispatch(fetchAllPosts());
         }
       };    
@@ -33,6 +34,7 @@ class Post extends Component {
     };
     
     render(){
+        typeof goToHomepage === 'function' && goToHomepage('/');
         const {
             dispatch,
             id,
@@ -45,9 +47,10 @@ class Post extends Component {
             commentCount,
             goToHomepage
                 } = this.props;
-
+                
         
         return(
+            
         <div className="post">
         <div className = "post-list">
         <div className = "post-list-item">

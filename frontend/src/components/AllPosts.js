@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import SortPosts from './SortPosts';
 import { fetchAllPosts} from '../actions'
+import SortPosts from './SortPosts';
 import PageNotFound from './PageNotFound';
 import Post from './Post';
 
@@ -12,7 +12,6 @@ class AllPosts extends Component {
 
     render(){
         const { posts } = this.props;
-        //console.log("post" , posts);
         return(
             <div>
                 {!posts.length && (
@@ -27,7 +26,6 @@ class AllPosts extends Component {
 }
 
 const mapStateToProps = ({ posts , sorting }) => ({
-    ///posts: SortPosts(posts, sorting)
     posts : SortPosts(posts , sorting)
   });
   
