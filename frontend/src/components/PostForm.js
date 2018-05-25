@@ -42,8 +42,9 @@ class PostForm extends Component{
 
   onFormSubmit = e => {
     e.preventDefault();
-    if (!this.state.title || !this.state.author || !this.state.body) {
-      this.setState(() => ({ error: 'Please fill out all the fields' }));
+    if (this.state.title ==="" || this.state.author === "" || this.state.body === "") {
+      alert("All fileds are required !")
+//this.setState(() => ({ error: 'Please fill out all the fields' }));
     } else {
       this.props.onSubmit({
         id: this.state.id,

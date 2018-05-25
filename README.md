@@ -29,3 +29,4 @@ You can find the most recent version of this guide [here](https://github.com/Ras
 * Redux Thunk
 * Semantic UI React
 * React Bootstrap
+* React Font Awesome 
