@@ -5,8 +5,8 @@ import {
     fetchAddVoteToPost ,
     fetchDeletePost , 
     fetchAllPosts ,
-    fetchPost , 
-    fetchDeleteComment
+    fetchDeleteComment,
+    fetchPostsByCategories
         } from '../actions'
 import { formatTimestamp } from '../utils/helpers'
 import { Button } from 'react-bootstrap';
@@ -16,13 +16,10 @@ import { thumbsUp , thumbsDown, edit , close } from 'react-icons-kit/fa';
 class Post extends Component {
 
     handleVoting = () => {
-        //alert("###home  "  , this.props.goToHomepage)
-        if (this.props.goToHomepage) {
-            //alert("home")
-          this.props.dispatch(fetchPost(this.props.id));
+        if (window.location.pathname !== `/${this.props.category}`) {
+            this.props.dispatch(fetchAllPosts());
         } else {
-            //alert("else home")
-          this.props.dispatch(fetchAllPosts());
+          this.props.dispatch(fetchPostsByCategories(this.props.category))
         }
       };    
 
@@ -34,7 +31,6 @@ class Post extends Component {
     };
     
     render(){
-        typeof goToHomepage === 'function' && goToHomepage('/');
         const {
             dispatch,
             id,
@@ -44,8 +40,7 @@ class Post extends Component {
             author, 
             category,
             voteScore,
-            commentCount,
-            goToHomepage
+            commentCount
                 } = this.props;
                 
         

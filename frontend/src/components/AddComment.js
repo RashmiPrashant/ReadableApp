@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import uuid from 'uuid';
 import moment from 'moment';
-import Icon from 'react-icons-kit';
-import { close } from 'react-icons-kit/fa';
 import { FormGroup , FormControl ,ControlLabel,Button} from 'react-bootstrap';
 
 

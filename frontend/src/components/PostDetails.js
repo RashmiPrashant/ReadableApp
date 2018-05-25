@@ -34,9 +34,7 @@ class PostDetails extends Component {
                 <div className="commentSort">
                 <ul className="nav nav-pills nav-fill">
                             <li className="createComment">
-                            <div className="addComment">
-                                <CommentForm parentId={this.props.match.params.post_id} />
-                            </div>
+                            <h2>View and Create Comments !</h2>
                             </li>
                             
                             <li className="dropDownComment">
@@ -54,6 +52,9 @@ class PostDetails extends Component {
                         />
                     ))}
                     </div>
+                    <div className="addComment">
+                                <CommentForm parentId={this.props.match.params.post_id} />
+                            </div>
                 </div>
         )
     }

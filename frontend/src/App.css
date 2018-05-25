@@ -74,23 +74,13 @@ a:active {
   background-color: rgba(255, 255, 255, 0.75);
 }
 
-.modal {
-  position: absolute;
-  top: 40px;
-  left: 200px;
-  right: 200px;
-  bottom: 40px;
-  border: 1px solid rgb(204, 204, 204);
-  background: rgb(255, 255, 255);
-  overflow: auto;
-  border-radius: 4px;
-  outline: none;
-  padding: 20px;
-  border-radius: 3px;
-  box-shadow: 0 3px 8px 0 rgba(0,0,0,.24), 0 3px 12px 0 rgba(0,0,0,.12);
-  min-width: 500px;
+.postFormTitle{
+  text-align: left;
 }
 
+.postInputFiled{
+  width:500px;
+}
 .post-data {
   display: flex;
 }
@@ -119,11 +109,13 @@ a:active {
   width:175px;
 }
 .createComment{
-  margin-top:0px;
+  margin-top:10px;
+  text-align: left;
   margin-bottom:18px;
   width: 950px;
 }
 .dropDownComment{
+  
   margin-top: 17px;
   margin-bottom: 10px;
   

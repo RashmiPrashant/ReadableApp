@@ -71,8 +71,8 @@ class PostForm extends Component{
               <h3 className= "subheader">Create your post here !!</h3>
               
               <form>
-              <FormGroup>
-              <ControlLabel>Select</ControlLabel>
+              <FormGroup className="postFormTitle">
+              <ControlLabel className="postInputFiled">Select</ControlLabel>
               <FormControl 
               componentClass="select" 
               placeholder="Category"
@@ -84,7 +84,7 @@ class PostForm extends Component{
               </FormControl>
             </FormGroup>
 
-            <FormGroup>
+            <FormGroup className="postFormTitle">
               <ControlLabel>Enter title</ControlLabel>
               <FormControl
                 type="text"
@@ -94,7 +94,7 @@ class PostForm extends Component{
               />
           </FormGroup>
 
-           <FormGroup>
+           <FormGroup className="postFormTitle">
               <ControlLabel>Enter Author</ControlLabel>
               <FormControl
                 type="text"
@@ -105,7 +105,7 @@ class PostForm extends Component{
           </FormGroup>
 
 
-           <FormGroup>
+           <FormGroup className="postFormTitle">
               <ControlLabel>Content</ControlLabel>
               <FormControl
                 componentClass="textarea"

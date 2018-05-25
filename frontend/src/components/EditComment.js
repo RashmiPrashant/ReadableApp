@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import AddComment from './AddComment';
 import { fetchEditComment } from '../actions';
+import AddComment from './AddComment';
 import PageNotFound from './PageNotFound';
 
 class EditComment extends Component{
@@ -11,8 +11,6 @@ class EditComment extends Component{
             comment => comment.id === this.props.match.params.id
           );
           const matchedComment = { ...comment[0] };
-
-        console.log("##### matchedComment", matchedComment)  
         return(
             <div>
                 {Object.keys(matchedComment).length > 0 ? (
@@ -34,4 +32,8 @@ class EditComment extends Component{
     }
 }
 
-export default EditComment
+const mapStateToProps = ({ comments }) => ({
+    comments
+  });
+
+export default connect(mapStateToProps, { fetchEditComment })(EditComment)

@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {Link} from 'react-router-dom';
 import { fetchAllComments , 
-         fetchPost, 
-         fetchEditComment , 
+         fetchPost,  
          fetchDeleteComment , 
          fetchAddVoteToComment } from '../actions';
 import { formatTimestamp } from '../utils/helpers'
@@ -20,9 +19,7 @@ class Comments extends Component{
             timestamp,
             body,
             author,
-            parentDeleted,
             voteScore,
-            deleted,
             postUrl
                 } = this.props;
             

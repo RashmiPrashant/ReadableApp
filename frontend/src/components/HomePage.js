@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import { Link } from "react-router-dom";
 import AllPosts from './AllPosts'
-import { fetchAllPosts} from '../actions'
 import {connect} from 'react-redux'
-import CreatePostPage from './CreatePostPage';
 import SortDropdown from './SortDropdown'
 import { Button} from 'react-bootstrap';
 
