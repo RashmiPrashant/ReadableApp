@@ -30,3 +30,6 @@ You can find the most recent version of this guide [here](https://github.com/Ras
 * Semantic UI React
 * React Bootstrap
 * React Font Awesome 
+
+## Local backend server is at https://github.com/udacity/reactnd-project-readable-starter
+There are server's endpoints to manage storing, reading, updating, and deleting data for this application.
