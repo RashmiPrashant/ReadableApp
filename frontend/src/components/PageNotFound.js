@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
+import { Button } from 'react-bootstrap';
 
 class PageNotFound extends Component {
     render(){
         return(
-            <div>
-                <span>Page not found !!</span>
+            <div className="notFound">
+                <div className="notFoundMessage">
+                    <h3>Page not found !!
+                        </h3>
+                    </div>
                     <Link to="/">
-                        <button>Back to home</button>
+                        <Button>Back to home</Button>
                     </Link>
             </div>
         )

@@ -28,12 +28,13 @@ class App extends Component {
         <div>
           <Switch>
             <Route exact path="/" component={HomePage}/>
+            <Route exact path="/editpost/:id" component={EditPost} />
+            <Route exact path="/editcomment/:id" component={EditComment} />
             <Route exact path="/createpost" component={CreatePostPage} />
             <Route exact path="/:category" component={PostByCategory} />
             <Route exact path="/:category/:post_id" component={PostDetails}/>
             <Route exact path='/404' component={PageNotFound}/>
-            <Route exact path="/editpost/:id" component={EditPost} />
-            <Route exact path="/editcomment/:id" component={EditComment} />
+            
           </Switch>
           </div>
         </div>

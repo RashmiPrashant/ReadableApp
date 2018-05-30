@@ -169,6 +169,16 @@ a:active {
   justify-content: center;
 }
 
+.notFound{
+  height: 300px;
+  text-align: center;
+  border: 2px solid #c3d2e0;
+}
+
+.notFoundMessage{
+  padding: 70px;
+  text-align: center;
+}
 .commentSort{
   display: inline;
   background-color: #1965b1;

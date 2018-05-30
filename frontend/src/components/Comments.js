@@ -61,7 +61,8 @@ class Comments extends Component{
                                             pathname: `/editcomment/${id}`,
                                             state: { post: { postUrl } }
                                           }}
-                                    >Edit <Icon icon={edit}/></Link>
+                                          style={{ textDecoration: 'none' , color:  '#e6f3ff' }}>
+                                          Edit <Icon icon={edit}/></Link>
                                 </Button>
                                 
                                 <Button 

@@ -80,7 +80,7 @@ class Post extends Component {
             bsSize="large" 
             bsStyle="primary" 
             className="btn btn-secondary" > 
-            <Link to={`/editpost/${id}`}>Edit Post </Link><Icon icon={edit}/>
+            <Link style={{ textDecoration: 'none' , color:  '#e6f3ff' }} to={`/editpost/${id}`}>Edit Post </Link><Icon icon={edit}/>
         </Button>
         
         <Button onClick={() => {

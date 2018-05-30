@@ -5,7 +5,7 @@ import { fetchEditPost } from '../actions';
 
 class EditPost extends Component {
   render() {
-      alert("in edit page !!!")
+      //alert("in edit page !!!")
     const post = this.props.posts.filter(
         post => post.id === this.props.match.params.id
       );
