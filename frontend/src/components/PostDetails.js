@@ -6,6 +6,7 @@ import SortDropdown from './SortDropdown'
 import Post from './Post';
 import Comments from './Comments'; 
 import CommentForm from './CommentForm';
+import PageNotFound from './PageNotFound';
 
 class PostDetails extends Component {
 
@@ -23,7 +24,10 @@ class PostDetails extends Component {
             comments.map(comment => comment.id);
             
         return(
+            <div>
+                 { Object.keys(singlePost).length > 0 ? (
             <div className="post-details">
+               
                 <Post 
                     commentsId={commentsId} 
                     {...singlePost} 
@@ -55,6 +59,11 @@ class PostDetails extends Component {
                     <div className="addComment">
                                 <CommentForm parentId={this.props.match.params.post_id} />
                             </div>
+                              
+                </div>
+                ) : (
+                    <PageNotFound />
+                )}
                 </div>
         )
     }

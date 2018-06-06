@@ -12,6 +12,7 @@ import { formatTimestamp } from '../utils/helpers'
 import { Button } from 'react-bootstrap';
 import Icon from 'react-icons-kit';
 import { thumbsUp , thumbsDown, edit , close } from 'react-icons-kit/fa';
+import PageNotFound from './PageNotFound';
 
 class Post extends Component {
 
@@ -45,7 +46,10 @@ class Post extends Component {
                 
         
         return(
-            
+        <div>
+        {!id ? ( 
+           <PageNotFound /> 
+         ) : ( 
         <div className="post">
         <div className = "post-list">
         <div className = "post-list-item">
@@ -97,6 +101,9 @@ class Post extends Component {
                         </div>
                     </div>
                 </div>
+               
+            </div>
+        )}
             </div>
         )
     }

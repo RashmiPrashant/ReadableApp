@@ -56,8 +56,10 @@ import {
           return state.filter(comment => comment.id !== action.commentId);
         case EDIT_COMMENT :
           return [...state, ...action.comment];
+        //case ADD_VOTE_TO_COMMENT :
+          //return [...state, ...action.comment];
         case ADD_VOTE_TO_COMMENT :
-          return [...state, ...action.comment];
+          return state.map( comment => { if(comment.id === action.commentId) { return action.comment } return comment })
         default :
         return state
       }
