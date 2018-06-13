@@ -12,7 +12,7 @@ import { formatTimestamp } from '../utils/helpers'
 import { Button } from 'react-bootstrap';
 import Icon from 'react-icons-kit';
 import { thumbsUp , thumbsDown, edit , close } from 'react-icons-kit/fa';
-import PageNotFound from './PageNotFound';
+import PropTypes from "prop-types";
 
 class Post extends Component {
 
@@ -46,10 +46,7 @@ class Post extends Component {
                 
         
         return(
-        <div>
-        {!id ? ( 
-           <PageNotFound /> 
-         ) : ( 
+            
         <div className="post">
         <div className = "post-list">
         <div className = "post-list-item">
@@ -101,12 +98,19 @@ class Post extends Component {
                         </div>
                     </div>
                 </div>
-               
-            </div>
-        )}
             </div>
         )
     }
 }
-
+Post.propTypes = { 
+    id: PropTypes.string, 
+    timestamp: PropTypes.number, 
+    title: PropTypes.string, 
+    body: PropTypes.string, 
+    author: PropTypes.string, 
+    category: PropTypes.string, 
+    voteScore: PropTypes.number, 
+    commentCount: PropTypes.number 
+ }; 
+    
 export default connect()(Post);

@@ -6,21 +6,17 @@ import { FormGroup , FormControl ,ControlLabel,Button} from 'react-bootstrap';
 
 class PostForm extends Component{
   
-  constructor(props) {
-    super(props);
-    this.state = {
-      id: props.postInfo ? props.postInfo.id : uuid(),
-      category: props.postInfo ? props.postInfo.category : 'react',
-      title: props.postInfo ? props.postInfo.title : '',
-      author: props.postInfo ? props.postInfo.author : '',
-      body: props.postInfo ? props.postInfo.body : '',
-      voteScore: props.postInfo ? props.postInfo.voteScore : 0,
-      commentCount: props.postInfo ? props.postInfo.commentCount : 0,
-      error: '',
+state = {
+      id: this.props.postInfo ? this.props.postInfo.id : uuid(),
+      category: this.props.postInfo ? this.props.postInfo.category : 'react',
+      title: this.props.postInfo ? this.props.postInfo.title : '',
+      author: this.props.postInfo ? this.props.postInfo.author : '',
+      body: this.props.postInfo ? this.props.postInfo.body : '',
+      voteScore: this.props.postInfo ? this.props.postInfo.voteScore : 0,
+      commentCount: this.props.postInfo ? this.props.postInfo.commentCount : 0,
       value: ''
-    };
+    
   }
-
   onCategoryChange = (e) => {
     this.setState({category: e.currentTarget.value})
   };
@@ -43,8 +39,7 @@ class PostForm extends Component{
   onFormSubmit = e => {
     e.preventDefault();
     if (this.state.title ==="" || this.state.author === "" || this.state.body === "") {
-      alert("All fileds are required !")
-//this.setState(() => ({ error: 'Please fill out all the fields' }));
+      alert("All fields are required !")
     } else {
       this.props.onSubmit({
         id: this.state.id,
@@ -69,7 +64,7 @@ class PostForm extends Component{
     render(){
         return(
             <div>
-              <h3 className= "subheader">Create your post here !!</h3>
+              <h3 className= "subheader">{this.props.postInfo ? 'Edit Post !!' : 'Create your post here !!'}</h3>
               
               <form>
               <FormGroup className="postFormTitle">
@@ -128,4 +123,3 @@ class PostForm extends Component{
 
 
 export default connect()(PostForm);
-

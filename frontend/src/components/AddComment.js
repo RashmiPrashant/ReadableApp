@@ -6,18 +6,12 @@ import { FormGroup , FormControl ,ControlLabel,Button} from 'react-bootstrap';
 
 
 class AddComment  extends Component{
-    constructor(props) {
-        super(props);
-        this.state = {
-          id: props.commentInfo ? props.commentInfo.id : uuid(),
-          parentId: props.commentInfo
-            ? props.commentInfo.parentId
-            : props.parentPostId,
-          author: props.commentInfo ? props.commentInfo.author : '',
-          body: props.commentInfo ? props.commentInfo.body : '',
-          voteScore: props.commentInfo ? props.commentInfo.voteScore : 0,
-          error: ''
-        };
+    state = {
+          id: this.props.commentInfo ? this.props.commentInfo.id : uuid(),
+          parentId: this.props.commentInfo  ? this.props.commentInfo.parentId : this.props.parentPostId,
+          author: this.props.commentInfo ? this.props.commentInfo.author : '',
+          body: this.props.commentInfo ? this.props.commentInfo.body : '',
+          voteScore: this.props.commentInfo ? this.props.commentInfo.voteScore : 0,        
       }
      
 
@@ -34,8 +28,7 @@ class AddComment  extends Component{
       onFormSubmit = e => {
         e.preventDefault();
         if (this.state.author==="" || this.state.body ==="") {
-          alert("please all filed are comulsory!!");
-          this.setState(() => ({ error: 'Please fill out all the fields' }));
+          alert("All fields are required !")
         } else {
           this.props.onSubmit({
             id: this.state.id,

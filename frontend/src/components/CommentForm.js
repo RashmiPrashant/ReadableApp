@@ -1,7 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import { fetchAddNewComment , fetchPost  } from '../actions';
+import { fetchAddNewComment } from '../actions';
 import AddComment from './AddComment';
+import PropTypes from 'prop-types';
 
 const CommentForm = props => {
     return (
@@ -9,11 +10,15 @@ const CommentForm = props => {
         parentPostId={props.parentId}
         onSubmit={comment => {
           props.dispatch(fetchAddNewComment(comment));
-          props.dispatch(fetchPost(props.parentId));
         }}
       />
     );
   };
   
+
+  CommentForm.propTypes = { 
+     parentId: PropTypes.string.isRequired 
+   }; 
+    
   export default connect()(CommentForm);
   

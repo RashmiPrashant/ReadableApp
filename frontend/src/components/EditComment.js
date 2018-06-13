@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { fetchEditComment } from '../actions';
 import AddComment from './AddComment';
 import PageNotFound from './PageNotFound';
+import PropTypes from 'prop-types';
 
 class EditComment extends Component{
     render(){
@@ -32,6 +33,10 @@ class EditComment extends Component{
     }
 }
 
+EditComment.propTypes = { 
+   comments: PropTypes.array.isRequired 
+ }; 
+    
 const mapStateToProps = ({ comments }) => ({
     comments
   });

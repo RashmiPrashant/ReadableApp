@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { fetchAllPosts} from '../actions'
-import SortPosts from './SortPosts';
+import SortPosts from '../utils/SortPosts';
 import PageNotFound from './PageNotFound';
 import Post from './Post';
+import PropTypes from "prop-types";
 
 class AllPosts extends Component {
     componentDidMount() {
@@ -29,5 +30,8 @@ const mapStateToProps = ({ posts , sorting }) => ({
     posts : SortPosts(posts , sorting)
   });
   
-
-  export default connect(mapStateToProps, { fetchAllPosts })(AllPosts);
+AllPosts.propTypes = { 
+   posts: PropTypes.array.isRequired 
+}; 
+    
+export default connect(mapStateToProps, { fetchAllPosts })(AllPosts);

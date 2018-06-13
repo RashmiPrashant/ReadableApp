@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import { fetchPostsByCategories} from '../actions'
 import PageNotFound from './PageNotFound';
 import Post from './Post';
+import PropTypes from "prop-types";
 
 class PostByCategory extends Component {
 
@@ -29,4 +30,7 @@ const mapStateToProps = ({ posts }) => ({
     posts
   });
 
+  PostByCategory.propTypes = { 
+   posts: PropTypes.array.isRequired 
+};
 export default connect(mapStateToProps, { fetchPostsByCategories })(PostByCategory);

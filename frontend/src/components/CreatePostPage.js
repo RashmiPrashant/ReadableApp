@@ -8,6 +8,7 @@ const CreatePostPage = props => (
     <PostForm
       onSubmit={post => {
         props.dispatch(fetchAddPost(post));
+        props.history.push('/');
       }}
     />
   </div>

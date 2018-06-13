@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {Link} from 'react-router-dom';
-import { fetchAllComments , 
-         fetchPost,  
+import { fetchAllComments ,
          fetchDeleteComment , 
          fetchAddVoteToComment } from '../actions';
 import { formatTimestamp } from '../utils/helpers'
 import { Button } from 'react-bootstrap';
 import Icon from 'react-icons-kit';
 import { thumbsUp ,thumbsDown , edit , close  } from 'react-icons-kit/fa';
+import PropTypes from 'prop-types';
 
 class Comments extends Component{
     render(){
@@ -68,7 +68,6 @@ class Comments extends Component{
                                 <Button 
                                      onClick={() => {
                                         dispatch(fetchDeleteComment(id));
-                                        dispatch(fetchPost(parentId));
                                       }}
                                     bsSize="small" 
                                     bsStyle="primary" 
@@ -82,5 +81,16 @@ class Comments extends Component{
         )
     }
 }
+
+Comments.propTypes = { 
+   id: PropTypes.string.isRequired, 
+   parentId: PropTypes.string.isRequired, 
+   body: PropTypes.string.isRequired, 
+   author: PropTypes.string.isRequired, 
+   voteScore: PropTypes.number.isRequired 
+ }; 
+ 
+     
+    
 
 export default connect()(Comments);

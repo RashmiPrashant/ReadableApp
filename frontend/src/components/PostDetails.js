@@ -1,12 +1,13 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import { fetchAllPosts , fetchAllComments} from '../actions'
-import SortPosts from './SortPosts';
+import SortPosts from '../utils/SortPosts';
 import SortDropdown from './SortDropdown'
 import Post from './Post';
 import Comments from './Comments'; 
 import CommentForm from './CommentForm';
 import PageNotFound from './PageNotFound';
+import PropTypes from "prop-types";
 
 class PostDetails extends Component {
 
@@ -69,9 +70,14 @@ class PostDetails extends Component {
     }
 }
 
+
 const mapStateToProps = ({ posts , comments , sorting }) => ({
     posts,
     comments: SortPosts(comments, sorting)
   });
+
+PostDetails.propTypes = { 
+    comments: PropTypes.array.isRequired 
+ }; 
 
 export default connect(mapStateToProps, { fetchAllPosts,fetchAllComments })(PostDetails);

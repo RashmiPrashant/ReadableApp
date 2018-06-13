@@ -58,9 +58,11 @@ class SortDropdown extends Component{
   }
 }
 
-const mapStateToProps = state => ({
-  sorting: state.sorting
-});
+//const mapStateToProps = state => ({
+  //sorting: state.sorting
+//});
+
+const mapStateToProps = ({ sorting }) => ({ sorting });
 
 export default connect(mapStateToProps, {
   fetchAllPosts,

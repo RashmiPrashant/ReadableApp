@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {Link} from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 import { fetchPostsByCategories} from '../actions'
+import PropTypes from "prop-types";
 
 const Category = ({ name, dispatch }) => (
     
@@ -15,4 +16,7 @@ const Category = ({ name, dispatch }) => (
     </Link>
   );
 
+Category.propTypes = { 
+    posts: PropTypes.array 
+ }
 export default connect()(Category)

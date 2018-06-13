@@ -1,11 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {Link} from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 
-class PageNotFound extends Component {
-    render(){
-        return(
-            <div className="notFound">
+const PageNotFound = () =>(
+    <div className="notFound">
                 <div className="notFoundMessage">
                     <h3>Page not found !!
                         </h3>
@@ -14,8 +12,8 @@ class PageNotFound extends Component {
                         <Button>Back to home</Button>
                     </Link>
             </div>
-        )
-    }
-}
 
-export default PageNotFound;
+)
+          
+
+export default PageNotFound
